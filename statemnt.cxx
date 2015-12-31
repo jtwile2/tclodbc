@@ -272,6 +272,7 @@ void TclStatement::ReserveResultBuffer() {
         if (resultBuffer[i].cbValueMax == SQL_NO_TOTAL ||
             resultBuffer[i].fSqlType == SQL_LONGVARBINARY || 
             resultBuffer[i].fSqlType == SQL_LONGVARCHAR ||
+            resultBuffer[i].fSqlType == SQL_WVARCHAR ||
             resultBuffer[i].cbValueMax > MAX_BLOB_COLUMN_LENGTH) {
             // column is not bound
             resultBuffer[i].strResult = NULL;
