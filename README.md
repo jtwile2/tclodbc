@@ -19,16 +19,15 @@ Please see the license.txt file for more information about the licensing of
 this package.
 
 SUPPORTED
-+++++++++
+---------
 Supported (tested) platforms:
     - Visual C++ 6.0 on Windows NT
     - So far I have not done any Unix testing...
 
     
 BINARY DISTRIBUTION
-+++++++++++++++++++
-Windows NT
-----------
+-------------------
+### Windows NT
 For Windows NT, you will probably install the included binary
 distribution. To do this, just type the following (tclsh may be
 tclsh82 or something similar):
@@ -41,23 +40,20 @@ Makefile. The setup.tcl file does not know about --prefix and
 --exec-prefix, so it installs into the DLL into the standard Tcl package
 directory.
 
-Unix
-----
+### Unix
 There is no Unix binary distribution.
 
 
 BUILDING
-++++++++
-Windows NT
-----------
+--------
+### Windows NT
 
 Follow the steps from the Unix section. If you want to rebuild the package
 without cygwin under Windows NT, the included tclodbc.mak can be used to
 build the library.  You will have to adjust the project to work properly on
 your configuration.
 
-Unix
-----
+### Unix
 
 Under Unix you will have to use autoconf to create a configuration file, and
 thus Makefile, which will build and install the package.  Specify the same
@@ -86,7 +82,7 @@ automatically, you may want to use the following two options:
 
 
 USING THE PACKAGE
-+++++++++++++++++
+-----------------
 The extension is installed as a tcl package. After installation the
 extension is loaded simply by command:
 
