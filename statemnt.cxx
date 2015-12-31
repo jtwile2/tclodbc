@@ -75,7 +75,7 @@ void TclStatement::FreeStmt() {
 };
 
 int TclStatement::Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
-    SDWORD count;
+    SQLLEN count;
 
     if (!pDb) {
         THROWSTR("Connection closed. Cannot execute.");
@@ -358,8 +358,8 @@ TclObj TclStatement::Result() {
 		result.appendElement(row);
 	    }
 	} else {
-	    long i;
-	    SQLRowCount(stmt, (SQLINTEGER *) &i);
+	    SQLLEN i;
+	    SQLRowCount(stmt, &i);
 	    result = i;
 	}
 	return result;
@@ -398,8 +398,8 @@ TclObj TclStatement::Result() {
 
 
 	    } else {
-		long i;
-		SQLRowCount(stmt, (SQLINTEGER *) &i);
+		SQLLEN i;
+		SQLRowCount(stmt, &i);
 		return i;
 	    }
 
@@ -502,10 +502,10 @@ TclObj TclStatement::Columns(int objc, TCL_CMDARGS) {
 
 TclObj TclStatement::ColumnInfo(int col, UWORD attr) {
     char   strData [256];
-	SDWORD wordData;
+    SQLLEN wordData;
 
-	switch (attr) {
-	case SQL_COLUMN_LABEL:
+    switch (attr) {
+        case SQL_COLUMN_LABEL:
 	case SQL_COLUMN_TYPE_NAME:
 	case SQL_COLUMN_TABLE_NAME:
 	case SQL_COLUMN_NAME:
@@ -521,17 +521,17 @@ TclObj TclStatement::ColumnInfo(int col, UWORD attr) {
 	case SQL_COLUMN_TYPE:
 	case SQL_COLUMN_PRECISION:
 	case SQL_COLUMN_SCALE:
-    case SQL_COLUMN_NULLABLE:
-    case SQL_COLUMN_UPDATABLE:
+        case SQL_COLUMN_NULLABLE:
+        case SQL_COLUMN_UPDATABLE:
 		if (SQLColAttributes(stmt, col, attr, 
 			NULL, 0, NULL, &wordData) == SQL_ERROR)
 			THROWOBJ(SqlErr(env, SQL_NULL_HDBC, stmt))
-        return TclObj(wordData);
-		break;
+                return TclObj(wordData);
+       		break;
 
 	default: 
 		THROWSTR("Invalid column data definition")
-        return TclObj(); // to keep compiler happy
+                return TclObj(); // to keep compiler happy
 		break;
 	};
 }

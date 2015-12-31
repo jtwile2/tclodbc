@@ -190,9 +190,9 @@ struct NumStr
 // A struct for storing necessary data for retrieving sql results
 struct ResultBuffer
 {
-    SDWORD cbValue;
-    SDWORD cbValueMax;
-    SDWORD fSqlType;
+    SQLLEN cbValue;
+    SQLLEN cbValueMax;
+    SQLLEN fSqlType;
     BOOL   boundColumn;
     char*  strResult;
     SWORD  fTargetType;
@@ -201,10 +201,10 @@ struct ResultBuffer
 struct ArgDefBuffer
 {
     SWORD   fSqlType;
-    UDWORD  cbColDef;
+    SQLULEN  cbColDef;
     SWORD   ibScale;
     SWORD   fNullable;
-    SDWORD  cbValue;
+    SQLLEN  cbValue;
     SWORD   fSourceType;
 };
 
