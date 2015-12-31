@@ -50,8 +50,8 @@ terms specified in this license.
 #include "tclodbc.hxx"
 
 TclStatement::TclStatement(TclDatabase& d) 
-    : TclCmdObject(), stmt(SQL_NULL_HSTMT), resultBuffer(NULL),
-      colCount(-1), colLabels(), pDb(&d), useMultipleResultSets(false) {
+    : TclCmdObject(), stmt(SQL_NULL_HSTMT), pDb(&d), useMultipleResultSets(false),
+      colCount(-1), colLabels(), resultBuffer(NULL) {
     RETCODE rc;
 
     rc = SQLAllocStmt(d.DBC(), &stmt);

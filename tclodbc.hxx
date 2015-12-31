@@ -387,7 +387,7 @@ protected:
     TclDatabase* pDb;
 
     virtual int Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS);
-protected:
+
     bool useMultipleResultSets;
 private:
     int colCount;

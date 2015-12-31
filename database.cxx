@@ -79,8 +79,8 @@ void TclCmdObject::RemoveFromList() {
 }
 
 TclDatabase::TclDatabase(TclObj db, TclObj uid, TclObj passwd) 
-    : TclCmdObject(), dbc (SQL_NULL_HDBC), encoding(NULL), infoExtensions(0),
-      useMultipleResultSets(false) {
+    : TclCmdObject(), useMultipleResultSets(false), dbc(SQL_NULL_HDBC),
+      encoding(NULL), infoExtensions(0) {
 
     RETCODE rc;
     SWORD dummy;
@@ -112,8 +112,8 @@ TclDatabase::TclDatabase(TclObj db, TclObj uid, TclObj passwd)
 }
 
 TclDatabase::TclDatabase(TclObj connectionstring) 
-    : TclCmdObject(), dbc (SQL_NULL_HDBC), encoding(NULL), infoExtensions(0),
-      useMultipleResultSets(false) {
+    : TclCmdObject(), useMultipleResultSets(false), dbc(SQL_NULL_HDBC),
+      encoding(NULL), infoExtensions(0) {
 #ifdef INCLUDE_EXTENSIONS
     RETCODE rc;
     unsigned char szConnStrOut[256];
