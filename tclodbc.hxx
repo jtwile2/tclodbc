@@ -525,11 +525,11 @@ short StrToNum (char *str, NumStr array[],
 TclObj NumToStr (short num, NumStr array[]);
 
 inline short SqlType (char *strType) {
-    return StrToNum(strType, sqlType, "Invalid sql type: ");
+    return StrToNum(strType, sqlType, (char *)"Invalid sql type: ");
 };
 
 inline short AttrDef (char *strDef) {
-    return StrToNum(strDef, attrDef, "Invalid attribute: ");
+    return StrToNum(strDef, attrDef, (char *)"Invalid attribute: ");
 };
 
 inline short ConfigOp (char *strDef) {

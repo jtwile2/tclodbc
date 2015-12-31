@@ -52,7 +52,7 @@ extern Tcl_ObjType TclodbcEncodedString;
 #endif
 
 extern char* strMemoryAllocationFailed;
-char* strFunctionSequenceError = "Function sequence error in tclodbc.";
+const char* strFunctionSequenceError = "Function sequence error in tclodbc.";
 
 TclObj::TclObj(const char* s, int len) : p (NULL)
 {
@@ -249,7 +249,7 @@ TclObj::operator char* () const
         return Tcl_DStringValue(&p->s);
 #endif
     } else {
-	return "";
+	return (char*)"";
     }
 }
 
