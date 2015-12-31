@@ -108,13 +108,13 @@ void UpdateTclodbcEncodedString(Tcl_Obj *o) {
 
 int SetTclodbcEncodedString(Tcl_Interp *interp, Tcl_Obj *p) {
     if (interp)
-        Tcl_SetResult(interp, "Not supported", TCL_STATIC);
+        Tcl_SetResult(interp, (char *)"Not supported", TCL_STATIC);
 
     return TCL_ERROR;
 }
 
 Tcl_ObjType TclodbcEncodedString = {
-    "TclodbcEncodedString", 
+    (char *)"TclodbcEncodedString", 
     FreeTclodbcEncodedString, 
     DuplicateTclodbcEncodedString, 
     UpdateTclodbcEncodedString, 

@@ -95,7 +95,7 @@ int TclStatement::Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 THROWSTR(strWrongArgs);
 	    }
             Tcl_DeleteCommandFromToken(interp, tclCommand);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case COLUMNS:
@@ -111,7 +111,7 @@ int TclStatement::Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 THROWSTR("wrong # args, should be execute [args]");
 	    }
             Execute(interp, objc-2, objv+2);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case MORERESULTS: {
@@ -184,7 +184,7 @@ int TclStatement::Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
 	    }
             SetOption(Tcl_GetStringFromObj(objv[2], NULL), 
 			          Tcl_GetStringFromObj(objv[3], NULL));
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case GET:
@@ -197,14 +197,14 @@ int TclStatement::Dispatch(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
             if (objc < 3 || objc > 4)
                 THROWSTR("wrong # args, should be eval proc [args]")
             Eval(interp, TclObj(objv[2]), objc-3, objv+3);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case READ:
             if (objc < 3 || objc > 4)
                 THROWSTR("wrong # args, should be read array [args]")
             Read(interp, TclObj(objv[2]), objc-3, objv+3);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case ROWCOUNT:

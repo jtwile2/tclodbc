@@ -235,7 +235,7 @@ int tcl_database (ClientData clientData, Tcl_Interp *interp, int objc,
     try {
         if (objc == 1) {
             // return usage
-            Tcl_SetResult(interp, strUsage, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strUsage, TCL_STATIC);
             return TCL_OK;
         }
 
@@ -258,7 +258,7 @@ int tcl_database (ClientData clientData, Tcl_Interp *interp, int objc,
 
 	    case TclDatabase::VERSION:
 		// return version information
-		Tcl_SetResult(interp, strVersion, TCL_STATIC);
+		Tcl_SetResult(interp, (char *)strVersion, TCL_STATIC);
 		return TCL_OK;
 
 	    case TclDatabase::CONNECT:
@@ -392,7 +392,7 @@ Tclodbc_Init(Tcl_Interp *interp)
     // allocate environment handle if not yet allocated
     if (!env && SQLAllocEnv(&env) == SQL_ERROR) {
 	if (env == SQL_NULL_HENV) {
-	    Tcl_SetResult(interp, strMemoryAllocationFailed, TCL_STATIC);
+	    Tcl_SetResult(interp, (char *)strMemoryAllocationFailed, TCL_STATIC);
 	} else {
 	    Tcl_SetObjResult(interp,
 		    SqlErr(env, SQL_NULL_HDBC, SQL_NULL_HSTMT));

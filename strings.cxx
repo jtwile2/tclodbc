@@ -50,24 +50,24 @@ terms specified in this license.
 #include "tclodbc.hxx"
 
 // standard strings
-char* strVersion = "tclodbc " PACKAGE_VERSION " (c) Roy Nurmi 1998, 2002";
-char* strMemoryAllocationFailed = "Memory allocation failed";
-char* strInvalidHandle		= "Invalid handle";
-char* strOK			= "OK";
-char* strTables			= "tables";
-char* strColumns		= "columns";
-char* strIndexes		= "indexes";
-char* strPrimarykeys		= "primarykeys";
-char* strTypeinfo		= "typeinfo";
-char* strEval			= "eval";
-char* strRead			= "read";
-char* strGet			= "get";
-char* strSet			= "set";
-char* strAutocommit		= "autocommit";
-char* strCommit			= "commit";
-char* strRollback		= "rollback";
-char* strWrongArgs		= "wrong # args";
-char* strUsage = 
+const char* strVersion = "tclodbc " PACKAGE_VERSION " (c) Roy Nurmi 1998, 2002";
+const char* strMemoryAllocationFailed = "Memory allocation failed";
+const char* strInvalidHandle		= "Invalid handle";
+const char* strOK			= "OK";
+const char* strTables			= "tables";
+const char* strColumns		= "columns";
+const char* strIndexes		= "indexes";
+const char* strPrimarykeys		= "primarykeys";
+const char* strTypeinfo		= "typeinfo";
+const char* strEval			= "eval";
+const char* strRead			= "read";
+const char* strGet			= "get";
+const char* strSet			= "set";
+const char* strAutocommit		= "autocommit";
+const char* strCommit			= "commit";
+const char* strRollback		= "rollback";
+const char* strWrongArgs		= "wrong # args";
+const char* strUsage = 
 "Usage:\n"
 "  database [connect] id datasourcename userid password\n"
 "  database [connect] id connectionstring\n"
@@ -75,31 +75,31 @@ char* strUsage =
 "  database datasources\n"
 "  database drivers\n"
 "  database version\n";
-char* strCmdNotAvailable	= "command not available";
-char* strEmpty			= "";
-char* strDisconnect		= "disconnect";
-char* strRun			= "run";
-char* strDrop			= "drop";
-char* strExecute		= "execute";
-char* strMoreResults		= "moreresults";
-char* strFetch			= "fetch";
+const char* strCmdNotAvailable	= "command not available";
+const char* strEmpty			= "";
+const char* strDisconnect		= "disconnect";
+const char* strRun			= "run";
+const char* strDrop			= "drop";
+const char* strExecute		= "execute";
+const char* strMoreResults		= "moreresults";
+const char* strFetch			= "fetch";
 
-char* strConcurrency		= "concurrency";
-char* strMaxrows		= "maxrows";
-char* strTimeout		= "timeout";
-char* strMaxlenght		= "maxlenght"; // stupid spelling mistake before 2.2, retained for compatibility
-char* strMaxlength		= "maxlength";
-char* strRowsetsize		= "rowsetsize";
-char* strCursortype		= "cursortype";
-char* strNoscan			= "noscan";
-char* strEncoding		= "encoding";
-char* strStatement		= "statement";
-char* strRowCount		= "rowcount";
-char* strAsyncEnable		= "async";
+const char* strConcurrency		= "concurrency";
+const char* strMaxrows		= "maxrows";
+const char* strTimeout		= "timeout";
+const char* strMaxlenght		= "maxlenght"; // stupid spelling mistake before 2.2, retained for compatibility
+const char* strMaxlength		= "maxlength";
+const char* strRowsetsize		= "rowsetsize";
+const char* strCursortype		= "cursortype";
+const char* strNoscan			= "noscan";
+const char* strEncoding		= "encoding";
+const char* strStatement		= "statement";
+const char* strRowCount		= "rowcount";
+const char* strAsyncEnable		= "async";
 
-char* strInvalidOption		= "Invalid option: ";
+const char* strInvalidOption		= "Invalid option: ";
 
-char* strOldSyntax = "This is old syntax which has been removed from tclodbc 2.1. Check documentation for replacement";
+const char* strOldSyntax = "This is old syntax which has been removed from tclodbc 2.1. Check documentation for replacement";
 
 // IMPORTANT NOTE
 
@@ -111,41 +111,41 @@ char* strOldSyntax = "This is old syntax which has been removed from tclodbc 2.1
 
 NumStr sqlType [] = {
     {19,		NULL	       },
-    {SQL_BIGINT,	"BIGINT"       },
-    {SQL_BINARY,	"BINARY"       },
-    {SQL_BIT,		"BIT"	       },
-    {SQL_CHAR,		"CHAR"	       },
-    {SQL_DATE,		"DATE"	       },
-    {SQL_DECIMAL,	"DECIMAL"      },
-    {SQL_DOUBLE,	"DOUBLE"       },
-    {SQL_FLOAT,		"FLOAT"	       },
-    {SQL_INTEGER,	"INTEGER"      },
-    {SQL_LONGVARBINARY,	"LONGVARBINARY"},
-    {SQL_LONGVARCHAR,	"LONGVARCHAR"  },
-    {SQL_NUMERIC,	"NUMERIC"      },
-    {SQL_REAL,		"REAL"	       },
-    {SQL_SMALLINT,	"SMALLINT"     },
-    {SQL_TIME,		"TIME"	       },
-    {SQL_TIMESTAMP,	"TIMESTAMP"    },
-    {SQL_TINYINT,	"TINYINT"      },
-    {SQL_VARBINARY,	"VARBINARY"    },
-    {SQL_VARCHAR,	"VARCHAR"      }
+    {SQL_BIGINT,	(char *) "BIGINT"       },
+    {SQL_BINARY,	(char *) "BINARY"       },
+    {SQL_BIT,		(char *) "BIT"	        },
+    {SQL_CHAR,		(char *) "CHAR"	        },
+    {SQL_DATE,		(char *) "DATE"	        },
+    {SQL_DECIMAL,	(char *) "DECIMAL"      },
+    {SQL_DOUBLE,	(char *) "DOUBLE"       },
+    {SQL_FLOAT,		(char *) "FLOAT"	},
+    {SQL_INTEGER,	(char *) "INTEGER"      },
+    {SQL_LONGVARBINARY,	(char *) "LONGVARBINARY"},
+    {SQL_LONGVARCHAR,	(char *) "LONGVARCHAR"  },
+    {SQL_NUMERIC,	(char *) "NUMERIC"      },
+    {SQL_REAL,		(char *) "REAL"	        },
+    {SQL_SMALLINT,	(char *) "SMALLINT"     },
+    {SQL_TIME,		(char *) "TIME"	        },
+    {SQL_TIMESTAMP,	(char *) "TIMESTAMP"    },
+    {SQL_TINYINT,	(char *) "TINYINT"      },
+    {SQL_VARBINARY,	(char *) "VARBINARY"    },
+    {SQL_VARCHAR,	(char *) "VARCHAR"      }
 };
 
 NumStr attrDef [] = {
     {12,			NULL		},
-    {SQL_COLUMN_DISPLAY_SIZE,	"displaysize"	},
-    {SQL_COLUMN_LABEL,		"label"		},
-    {SQL_COLUMN_NAME,		"name"		},
-    {SQL_COLUMN_NULLABLE,	"nullable"	},
-    {SQL_COLUMN_OWNER_NAME,	"owner"		},
-    {SQL_COLUMN_PRECISION,	"precision"	},
-    {SQL_COLUMN_QUALIFIER_NAME,	"qualifiername" },
-    {SQL_COLUMN_SCALE,		"scale"		},
-    {SQL_COLUMN_TABLE_NAME,	"tablename"	},
-    {SQL_COLUMN_TYPE,		"type"		},
-    {SQL_COLUMN_TYPE_NAME,	"typename"	},
-    {SQL_COLUMN_UPDATABLE,	"updatable"	},
+    {SQL_COLUMN_DISPLAY_SIZE,	(char *) "displaysize"	},
+    {SQL_COLUMN_LABEL,		(char *) "label"	},
+    {SQL_COLUMN_NAME,		(char *) "name"		},
+    {SQL_COLUMN_NULLABLE,	(char *) "nullable"	},
+    {SQL_COLUMN_OWNER_NAME,	(char *) "owner"	},
+    {SQL_COLUMN_PRECISION,	(char *) "precision"	},
+    {SQL_COLUMN_QUALIFIER_NAME,	(char *) "qualifiername"},
+    {SQL_COLUMN_SCALE,		(char *) "scale"	},
+    {SQL_COLUMN_TABLE_NAME,	(char *) "tablename"	},
+    {SQL_COLUMN_TYPE,		(char *) "type"		},
+    {SQL_COLUMN_TYPE_NAME,	(char *) "typename"	},
+    {SQL_COLUMN_UPDATABLE,	(char *) "updatable"	},
 };
 
 NumStr stmtOp [] = {
@@ -164,12 +164,12 @@ NumStr stmtOp [] = {
 NumStr configOp [] = {
 #ifdef INCLUDE_EXTENSIONS
     {6,			       NULL	       },
-    {ODBC_ADD_DSN,	       "add_dsn"       },
-    {ODBC_ADD_SYS_DSN,	       "add_sys_dsn"   },
-    {ODBC_CONFIG_DSN,	       "config_dsn"    },
-    {ODBC_CONFIG_SYS_DSN,      "config_sys_dsn"},
-    {ODBC_REMOVE_DSN,	       "remove_dsn"    },
-    {ODBC_REMOVE_SYS_DSN,      "remove_sys_dsn"}
+    {ODBC_ADD_DSN,	       (char *) "add_dsn"       },
+    {ODBC_ADD_SYS_DSN,	       (char *) "add_sys_dsn"   },
+    {ODBC_CONFIG_DSN,	       (char *) "config_dsn"    },
+    {ODBC_CONFIG_SYS_DSN,      (char *) "config_sys_dsn"},
+    {ODBC_REMOVE_DSN,	       (char *) "remove_dsn"    },
+    {ODBC_REMOVE_SYS_DSN,      (char *) "remove_sys_dsn"}
 #else
     {0,			       NULL	       }
 #endif
@@ -192,39 +192,39 @@ NumStr connectOp [] = {
 
 NumStr booleanOp [] = {
     {8,				NULL		},
-    {0,				"0"		},
-    {1,				"1"		},
-    {0,				"false"		},
-    {0,				"no"		},
-    {0,				"off"		},
-    {1,				"on"		},
-    {1,				"true"		},
-    {1,				"yes"		}
+    {0,				(char *) "0"		},
+    {1,				(char *) "1"		},
+    {0,				(char *) "false"	},
+    {0,				(char *) "no"		},
+    {0,				(char *) "off"		},
+    {1,				(char *) "on"		},
+    {1,				(char *) "true"		},
+    {1,				(char *) "yes"		}
 };
 
 NumStr concurrencyOp [] = {
     {4,				NULL	     },
-    {SQL_CONCUR_LOCK,		"lock"	     },
-    {SQL_CONCUR_READ_ONLY,	"readonly"   },
-    {SQL_CONCUR_ROWVER,		"rowver"     },
-    {SQL_CONCUR_VALUES,		"values"     }
+    {SQL_CONCUR_LOCK,		(char *) "lock"	     },
+    {SQL_CONCUR_READ_ONLY,	(char *) "readonly"  },
+    {SQL_CONCUR_ROWVER,		(char *) "rowver"    },
+    {SQL_CONCUR_VALUES,		(char *) "values"    }
 };
 
 NumStr cursorOp [] = {
     {4,				NULL		},
-    {SQL_CURSOR_DYNAMIC,	"dynamic"	},
-    {SQL_CURSOR_FORWARD_ONLY,	"forwardonly"	},
-    {SQL_CURSOR_KEYSET_DRIVEN,	"keysetdriven"	},
-    {SQL_CURSOR_STATIC,		"static"	}
+    {SQL_CURSOR_DYNAMIC,	(char *) "dynamic"	},
+    {SQL_CURSOR_FORWARD_ONLY,	(char *) "forwardonly"	},
+    {SQL_CURSOR_KEYSET_DRIVEN,	(char *) "keysetdriven"	},
+    {SQL_CURSOR_STATIC,		(char *) "static"	}
 };
 
 NumStr databaseOptions [] = {
     {5,				NULL	     },
-    {TclDatabase::CONFIGURE,	"configure"   },
-    {TclDatabase::CONNECT,	"connect"     },
-    {TclDatabase::DATASOURCES,	"datasources" },
-    {TclDatabase::DRIVERS,	"drivers"	},
-    {TclDatabase::VERSION,	"version"	}
+    {TclDatabase::CONFIGURE,	(char *) "configure"   	},
+    {TclDatabase::CONNECT,	(char *) "connect"     	},
+    {TclDatabase::DATASOURCES,	(char *) "datasources" 	},
+    {TclDatabase::DRIVERS,	(char *) "drivers"	},
+    {TclDatabase::VERSION,	(char *) "version"	}
 };
 
 NumStr databaseCmds [] = {

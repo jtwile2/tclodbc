@@ -215,7 +215,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 THROWSTR(strWrongArgs);
 	    }
             Tcl_DeleteCommandFromToken(interp, tclCommand);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case TABLES:
@@ -261,7 +261,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 THROWSTR(strWrongArgs);
 	    }
             Transact(SQL_COMMIT);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case ROLLBACK:
@@ -269,7 +269,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 THROWSTR(strWrongArgs);
 	    }
             Transact(SQL_ROLLBACK);
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case SET:
@@ -279,7 +279,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
             SetOption(interp,
                       Tcl_GetStringFromObj(objv[2], NULL), 
 			          Tcl_GetString(objv[3]));
-            Tcl_SetResult(interp, strOK, TCL_STATIC);
+            Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             break;
 
         case GET:
@@ -304,7 +304,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 } 
 
                 stmt.Eval(interp, proc, objc-4, objv+4);
-                Tcl_SetResult(interp, strOK, TCL_STATIC);
+                Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             }
             break;
 
@@ -323,7 +323,7 @@ int TclDatabase::Dispatch (Tcl_Interp *interp, int objc, TCL_CMDARGS) {
                 } 
 
                 stmt.Read(interp, arraySpec, objc-4, objv+4);
-                Tcl_SetResult(interp, strOK, TCL_STATIC);
+                Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
             }
             break;
 
@@ -581,7 +581,7 @@ int TclDatabase::Configure(Tcl_Interp *interp, int objc, TCL_CMDARGS) {
     attributes.Encode(NULL);
 
     if (SQLConfigDataSource(NULL, operation, driver, attributes.EncodedValue())) {
-        Tcl_SetResult(interp, strOK, TCL_STATIC);
+        Tcl_SetResult(interp, (char *)strOK, TCL_STATIC);
         return TCL_OK;
     } else {
         THROWSTR("datasource configuration failed");

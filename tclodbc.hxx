@@ -169,7 +169,7 @@ extern HENV env;
 struct NumStr 
 {
     short numeric;
-    char* string;
+    const char* string;
 };
 
 #ifndef BOOL
@@ -414,7 +414,7 @@ protected:
 
 private:
     ArgDefBuffer *argDefBuffer;
-    SWORD argCount;
+    SQLSMALLINT argCount;
 };
 
 class TclTableQuery : public TclStatement {
@@ -471,35 +471,35 @@ private:
 // COMMON STRINGS AND STRINGTABLES
 //
 
-extern char* strVersion;
-extern char* strMemoryAllocationFailed;
-extern char* strInvalidHandle;
-extern char* strOK;
-extern char* strTables;
-extern char* strColumns;
-extern char* strIndexes;
-extern char* strPrimarykeys;
-extern char* strTypeinfo;
-extern char* strEval;
-extern char* strRead;
-extern char* strGet;
-extern char* strSet;
-extern char* strAutocommit;
-extern char* strWrongArgs;
-extern char* strUsage;
-extern char* strCmdNotAvailable;
-extern char* strEmpty;
+extern const char* strVersion;
+extern const char* strMemoryAllocationFailed;
+extern const char* strInvalidHandle;
+extern const char* strOK;
+extern const char* strTables;
+extern const char* strColumns;
+extern const char* strIndexes;
+extern const char* strPrimarykeys;
+extern const char* strTypeinfo;
+extern const char* strEval;
+extern const char* strRead;
+extern const char* strGet;
+extern const char* strSet;
+extern const char* strAutocommit;
+extern const char* strWrongArgs;
+extern const char* strUsage;
+extern const char* strCmdNotAvailable;
+extern const char* strEmpty;
 
-extern char* strConcurrency;
-extern char* strMaxrows;
-extern char* strTimeout;
-extern char* strMaxlenght;
-extern char* strRowsetsize;
-extern char* strCursortype;
+extern const char* strConcurrency;
+extern const char* strMaxrows;
+extern const char* strTimeout;
+extern const char* strMaxlenght;
+extern const char* strRowsetsize;
+extern const char* strCursortype;
 
-extern char* strInvalidOption;
+extern const char* strInvalidOption;
 
-extern char* strOldSyntax;
+extern const char* strOldSyntax;
 
 extern NumStr sqlType [];
 extern NumStr attrDef [];
@@ -519,8 +519,8 @@ extern NumStr globalOptions [];
 //
 
 TclObj SqlErr (HENV env, HDBC dbc, HSTMT stmt);
-short StrToNum (char *str, NumStr array[], 
-                char* errMsg = strInvalidOption,
+short StrToNum (const char* str, NumStr array[], 
+                const char* errMsg = strInvalidOption,
                 BOOLEAN allowNumeric = TRUE);
 TclObj NumToStr (short num, NumStr array[]);
 
