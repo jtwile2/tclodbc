@@ -143,7 +143,7 @@ TclObj SqlErr (HENV env, HDBC dbc, HSTMT stmt) {
     return errObj;
 }
 
-short StrToNum (char *str, NumStr array[], char* errMsg, BOOLEAN allowNumeric) {
+short StrToNum (const char *str, NumStr array[], const char* errMsg, BOOLEAN allowNumeric) {
 
     short num;
     int strFirst (1);
