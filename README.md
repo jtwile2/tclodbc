@@ -1,4 +1,5 @@
 README
+======
 
 This is just a repackaged version of the tclodbc package done by:
 
@@ -18,14 +19,14 @@ Please see the license.txt file for more information about the licensing of
 this package.
 
 SUPPORTED
-=========
++++++++++
 Supported (tested) platforms:
     - Visual C++ 6.0 on Windows NT
     - So far I have not done any Unix testing...
 
     
 BINARY DISTRIBUTION
-===================
++++++++++++++++++++
 Windows NT
 ----------
 For Windows NT, you will probably install the included binary
@@ -46,7 +47,7 @@ There is no Unix binary distribution.
 
 
 BUILDING
-========
+++++++++
 Windows NT
 ----------
 
@@ -66,14 +67,16 @@ file.
 
 On Ubuntu 14.04, the CC and LIBS environment variables must be used to
 correctly link the right libraries.
->export CC=g++
->export LIBS=-lodbcinst
+
+    export CC=g++
+    export LIBS=-lodbcinst
 
 To configure and make:
->autoconf
->./configure --prefix=/usr/local/tcl --exec-prefix=/usr/local/tcl/bin
->make
->make install
+
+    autoconf
+    ./configure --prefix=/usr/local/tcl --exec-prefix=/usr/local/tcl/bin
+    make
+    make install
 
 If your ODBC include files and libraries can not be found
 automatically, you may want to use the following two options:
@@ -83,7 +86,7 @@ automatically, you may want to use the following two options:
 
 
 USING THE PACKAGE
-=================
++++++++++++++++++
 The extension is installed as a tcl package. After installation the
 extension is loaded simply by command:
 
